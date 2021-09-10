@@ -1,0 +1,9 @@
+<div class="container text-black" style="margin-right: 38px; margin-top: 40px;">
+  <header>
+    <img [src]="article.images" class="card-img" alt="...">
+  </header>
+  <p class="p1 card-text">{{article.urlName}}</p>
+  <p class="card-text">{{article.description}}</p>
+  <div><a class="btn btn-danger" (click)="location.back()">Повернутись назад</a></div>
+  <div><a class="btn btn-danger" (click)="deleteArticle()">Видалити статтю</a></div>
+</div>

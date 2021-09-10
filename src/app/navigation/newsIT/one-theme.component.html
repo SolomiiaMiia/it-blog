@@ -1,0 +1,67 @@
+<!-- modal -->
+<ng-template #template>
+  <div class="modal-header" style="padding: 20px;">
+    <h4 class="modal-title pull-left">Modal</h4>
+    <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
+      <span aria-hidden=" true" class="visually-hidden">&times;</span>
+    </button>
+  </div>
+  <br>
+  <div class="modal-body" style="padding-right: 30px">
+    <form style="margin-left: 40px">
+      <div style="width: 200px;">
+        <select (change)=" selectCategory()" class="form-select" [(ngModel)]="currentCategory" name="currentCategory"
+          aria-label="Default select example">
+          <option selected disabled>Вибрати категорію(нереалізовано)</option>
+          <option>Новини</option>
+          <option>Події</option>
+        </select>
+        <br>
+      </div>
+      <div class="input-group mb-3">
+        <input (change)="uploadFile($event)" type="file" class="form-control" required>
+        <label class="input-group-text">Завантажити</label>
+      </div>
+      <div class="form-group">
+        <label for="itemTitle">Заголовок</label>
+        <input [(ngModel)]="itemTitle" name="itemTitle" id="itemTitle" type="text" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="itemUrlName">Короткий опис</label>
+        <input [(ngModel)]="itemUrlName" name="itemUrlName" id="itemUrlName" type="text" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="itemDescription">Стаття</label>
+        <textarea [(ngModel)]="itemDescription" name="itemDescription" id="itemDescription" class="form-control">
+        </textarea>
+      </div>
+      <br>
+      <button type="button" (click)="addItem()" style="width: 100px; height: 40px;"
+        class="btn btn-info mb-5">Зберегти</button>
+    </form>
+  </div>
+</ng-template>
+
+<button type="button" class="btn btn-primary" style="margin-left: 148px; width: 140px; height: 40px; margin-top: 50px;"
+  (click)="openModal(template)">Створити
+  статтю</button>
+<br><br>
+
+<!-- статті -->
+
+<div class="portfolio-wrap">
+  <div class="portfolio-item" *ngFor="let item of article">
+    <div class="portfolio-item-wrap">
+      <img [src]="item.images" class="card-img-top" alt="...">
+      <div class="portfolio-item-inner">
+        <div class="portfolio-heading">
+          <h5 class="card-title text-center">{{item.title}}</h5>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div>
+      <a class="btn btn-danger" [routerLink]="[ '/themeOne', item.id ]">Перейти</a>
+    </div>
+  </div>
+</div>

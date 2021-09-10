@@ -1,0 +1,40 @@
+
+a{
+  background: #0d6efd;
+  border: none;
+  height: 36px;
+  width: 116px;
+  margin-bottom:20px;
+  overflow: hidden;
+  display: block;
+  border-radius: 5px;
+  transition: All 0.5s ease;
+  text-align: center;
+}
+
+a:hover{
+  width: 230px;
+  text-align: center;
+}
+
+header{
+  width: 100%;
+  height: 300px;
+}
+
+img{
+  height: 300px;
+  
+}
+
+h5{
+  font-size: 30px;
+  text-align: center;
+  font-family:Arial, Helvetica, sans-serif;
+  font-weight: bolder;
+}
+
+.p1{
+  font-size: 20px;
+  font-weight: bold;
+}
