@@ -8,7 +8,6 @@ import { IArticle } from '../interfaces/article.interface';
 })
 export class ArticleService {
 
-
   private urlJsonNews: string;
   private urlJsonEvents: string;
 
@@ -39,8 +38,7 @@ export class ArticleService {
     return this.http.get<IArticle>(`${this.urlJsonNews}/${id}`)
   }
 
-  // fot Events
-
+  // for Events 
   getJSONArticleEvents(): Observable<Array<IArticle>> {
     return this.http.get<Array<IArticle>>(this.urlJsonEvents);
   }
@@ -49,7 +47,6 @@ export class ArticleService {
     return this.http.post<IArticle>(this.urlJsonEvents, article);
   }
 
-
   deleteJSONArticleEvents(id: number): Observable<IArticle> {
     return this.http.delete<IArticle>(`${this.urlJsonEvents}/${id}`);
   }
@@ -57,5 +54,4 @@ export class ArticleService {
   getJSONOneDetailsArticleEvents(id: number): Observable<IArticle> {
     return this.http.get<IArticle>(`${this.urlJsonEvents}/${id}`)
   }
-
 }

@@ -12,6 +12,7 @@ import { ArticleService } from 'src/app/shared/services/article.service';
 })
 export class TwoThemeComponent implements OnInit {
   currentCategory: any;
+
   itemID?: number = 1;
   article: Array<IArticle> = [];
   itemTitle: string = '';
@@ -20,7 +21,7 @@ export class TwoThemeComponent implements OnInit {
   file: any;
   upload: any;
   isUpload: boolean;
-  userImage: string;
+  itemImage: string;
 
   modalRef?: BsModalRef;
 
@@ -47,7 +48,7 @@ export class TwoThemeComponent implements OnInit {
   }
 
   addItem(): void {
-    const NEW_ITEM = new Article(this.itemUrlName, this.userImage, this.itemTitle,
+    const NEW_ITEM = new Article(this.itemUrlName, this.itemImage, this.itemTitle,
       this.itemDescription);
     delete NEW_ITEM.id;
     console.log(NEW_ITEM);
@@ -74,7 +75,7 @@ export class TwoThemeComponent implements OnInit {
     this.upload = this.afStorage.upload(filePath, this.file);
     this.upload.then(image => {
       this.afStorage.ref(`images/${image.metadata.name}`).getDownloadURL().subscribe(url => {
-        this.userImage = url;
+        this.itemImage = url;
         event.target.files = null;
         this.isUpload = true;
       });

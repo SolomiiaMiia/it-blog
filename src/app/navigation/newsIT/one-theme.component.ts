@@ -21,7 +21,7 @@ export class OneThemeComponent implements OnInit {
   file: any;
   upload: any;
   isUpload: boolean;
-  userImage: string;
+  itemImage: string;
 
   modalRef: BsModalRef;
 
@@ -40,7 +40,6 @@ export class OneThemeComponent implements OnInit {
   private getServerArticle(): void {
     this.articleService.getJSONArticle().subscribe(
       data => {
-        // console.log(data);
         this.article = data;
       },
       err => console.log(err)
@@ -48,17 +47,15 @@ export class OneThemeComponent implements OnInit {
   }
 
   addItem(): void {
-    const NEW_ITEM = new Article(this.itemUrlName, this.userImage, this.itemTitle,
+    const NEW_ITEM = new Article(this.itemUrlName, this.itemImage, this.itemTitle,
       this.itemDescription);
     delete NEW_ITEM.id;
-    console.log(NEW_ITEM);
     this.articleService.postJSONArticle(NEW_ITEM).subscribe(
       () => {
         this.getServerArticle();
       },
       err => console.log(err)
     );
-
     this.modalRef?.hide();
     this.resetForm();
   }
@@ -69,14 +66,13 @@ export class OneThemeComponent implements OnInit {
     this.itemDescription = '';
   }
 
-
   uploadFile(event): void {
     this.file = event.target.files[0];
     const filePath = `images/${this.file.name}`;
     this.upload = this.afStorage.upload(filePath, this.file);
     this.upload.then(image => {
       this.afStorage.ref(`images/${image.metadata.name}`).getDownloadURL().subscribe(url => {
-        this.userImage = url;
+        this.itemImage = url;
         event.target.files = null;
         this.isUpload = true;
       });
@@ -86,5 +82,4 @@ export class OneThemeComponent implements OnInit {
   openModal(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template);
   }
-
 }

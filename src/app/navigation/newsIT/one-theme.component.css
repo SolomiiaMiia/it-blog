@@ -1,13 +1,7 @@
-/* img{
-  max-width: 320px;
-  height: 280px;
-} */
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  
 }
 .portfolio-wrap {
   width: 80%;
@@ -57,8 +51,8 @@
   font-family: 'Pattaya', sans-serif;
   font-weight: bold;
   text-shadow: 2px 2px 3px black;
-
 } 
+
 .portfolio-heading h3:before, .portfolio-heading h3:after {
   content: "";
   position: absolute;
@@ -118,6 +112,33 @@
   transition-delay: .5s;
 }
 
+input[type="text"] {
+  height: 40px;
+}
+
+input[type="file"] {
+  height: 32px;
+}
+
+a{
+  background: #0d6efd;
+  border: none;
+  height: 34px;
+  width: 120px;
+  margin-bottom:20px;
+  overflow: hidden;
+  display: block;
+  border-radius: 5px;
+  transition: All 0.5s ease;
+  text-align: center;
+  padding: 3px;
+}
+
+a:hover{
+    width: 230px;
+    text-align: center;
+    padding: 3px;
+}
 
 @media (min-width: 530px) {
   .portfolio-item {

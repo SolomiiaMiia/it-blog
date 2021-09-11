@@ -13,8 +13,8 @@ export class DetailsNewsComponent implements OnInit {
 
   article: IArticle;
   constructor(private articleService: ArticleService,
-    private activatedRoute: ActivatedRoute,
-    public location: Location) { }
+              private activatedRoute: ActivatedRoute,
+              public location: Location) { }
 
   ngOnInit(): void {
     this.getOneArticle()

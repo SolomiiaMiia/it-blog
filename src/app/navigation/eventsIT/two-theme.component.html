@@ -42,13 +42,14 @@
   </div>
 </ng-template>
 
-<button type="button" class="btn btn-primary" style="margin-left: 148px; width: 140px; height: 40px; margin-top: 50px;"
+<!-- <button type="button" class="btn btn-primary" style="margin-left: 148px; width: 140px; height: 40px; margin-top: 50px;"
   (click)="openModal(template)">Створити
-  статтю</button>
-<br><br>
+  статтю</button> -->
+<div><a class="btn btn-danger" (click)="openModal(template)" style="margin-left: 148px; margin-top: 50px;">Створити
+    статтю</a>
+</div>
 
 <!-- статті -->
-
 <div class="portfolio-wrap">
   <div class="portfolio-item" *ngFor="let item of article">
     <div class="portfolio-item-wrap">

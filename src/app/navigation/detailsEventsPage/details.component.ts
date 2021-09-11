@@ -12,6 +12,7 @@ import { Location } from '@angular/common';
 export class DetailsEventComponent implements OnInit {
 
   article: IArticle;
+
   constructor(private articleService: ArticleService,
     private activatedRoute: ActivatedRoute,
     public location: Location) { }
@@ -29,6 +30,7 @@ export class DetailsEventComponent implements OnInit {
       err => console.log(err)
     );
   }
+
   deleteArticle(): void {
     if (confirm('Ви впевнені?')) {
       this.articleService.deleteJSONArticleEvents(this.article.id).subscribe(
@@ -40,6 +42,5 @@ export class DetailsEventComponent implements OnInit {
       );
     }
   }
-
 }
 

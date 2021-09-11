@@ -8,6 +8,7 @@ import { DetailsEventComponent } from './navigation/detailsEventsPage/details.co
 
 
 const routes: Routes = [
+  { path: '', pathMatch: 'full', redirectTo: 'themeOne' },
   {
     path: 'themeOne', component: OneThemeComponent
   },
@@ -18,6 +19,7 @@ const routes: Routes = [
   {
     path: 'themeTwo/:id', component: DetailsEventComponent
   },
+  { path: '**', redirectTo: 'themeOne' },
 
 ];
 
